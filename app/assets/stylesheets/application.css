@@ -1,15 +1,79 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+:root {
+  --primary: #3778c2;
+  --secondary: #5fb523;
+  --danger: #e54b4b;
+  --white: #fff;
+  --darker: #000;
+  --dark: #474b54;
+  --gray: #ccc;
+  --blue: #405cf5;
+  --white-shade: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  border: solid 1px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn-secondary {
+  border: none;
+  color: var(--dark);
+  opacity: 0.7;
+}
+
+.btn-secondary:hover {
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  opacity: 1;
+}
+
+/* Homepage: home.html.erb */
+.homepage {
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 768px;
+  height: 100vh;
+  background-color: var(--white-shade);
+}
+
+.brand {
+  font-family: 'Great Vibes', cursive;
+  opacity: 0.7;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.user-authentication {
+  flex-direction: column;
+  padding-top: 50%;
+  gap: 1.2rem;
+  width: 80%;
+}
