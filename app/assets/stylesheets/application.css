@@ -8,11 +8,13 @@
   --gray: #ccc;
   --blue: #405cf5;
   --white-shade: #f5f5f5;
+  --red: #f00;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
+  max-width: 768px;
 }
 
 .flex-center {
@@ -55,6 +57,68 @@
   opacity: 1;
 }
 
+.empty {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--danger);
+  font-size: large;
+  font-weight: 500;
+}
+
+/* Shared: _header.html.erb */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 2rem;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.icon-link {
+  color: var(--white);
+  font-size: large;
+}
+
+.title {
+  font-size: large;
+  font-weight: 600;
+}
+
+/* Shared: _footer.html.erb */
+.developer-details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.developer-details > h4 {
+  font-size: large;
+  font-weight: 600;
+}
+
+.socials {
+  display: flex;
+  gap: 2rem;
+}
+
+.socials > a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.socials > a:hover {
+  text-decoration: underline;
+}
+
 /* Homepage: home.html.erb */
 .homepage {
   flex-direction: column;
@@ -76,4 +140,227 @@
   padding-top: 50%;
   gap: 1.2rem;
   width: 80%;
+}
+
+/* Categories: index.html.erb */
+.authorized-user-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-category-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  box-shadow: 2px 2px 4px var(--dark);
+}
+
+.user-category-info > p {
+  font-size: large;
+  font-weight: 400;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0.75rem 2rem;
+}
+
+.button-container {
+  width: 100%;
+  padding: 0.75rem 2rem;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.button {
+  border: 1px solid var(--white);
+  border-radius: 8px;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  font-size: large;
+}
+
+/* Categories/partials: _category_item.html.erb */
+.category-container {
+  margin-bottom: 0.85rem;
+  padding: 0.85rem;
+  box-shadow: 2px 2px 4px var(--white-shade);
+  background-color: var(--white-shade);
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.category-details {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.category-link {
+  text-decoration: none;
+}
+
+.category-name,
+.category-details-text {
+  text-decoration: none;
+}
+
+.details {
+  color: var(--darker);
+}
+
+.details:hover {
+  cursor: default;
+}
+
+/* Categories/partials _transaction_item.html.erb */
+.single-category {
+  margin: 0.8rem 2rem;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 4px var(--white-shade);
+  background-color: var(--white-shade);
+}
+
+.btn-remove {
+  color: var(--danger);
+}
+
+.btn-remove:hover {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+/* Categories: new.html.erb */
+.category-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.category-form-section input {
+  width: 50vw;
+}
+
+.category-form {
+  width: 100%;
+  padding: 2rem;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: solid 1px #ccc;
+  background-color: #fff;
+}
+
+.form-actions {
+  margin-bottom: 1.2rem;
+}
+
+.form-actions input,
+.form-actions select {
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.form-actions input:focus,
+.form-actions select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-submit {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.btn-cancel {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.btn-cancel:hover {
+  border: none;
+  color: var(--white);
+  background-color: var(--danger);
+  font-weight: 600;
+}
+
+/* Purchase: new.html.erb */
+.purchase-checkbox {
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+/* Authentication */
+.auth-form {
+  max-width: 768px;
+  background-color: var(--white-shade);
+  padding: 0 0 1rem 0;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login-header {
+  font-size: 1.25rem;
+  width: 100%;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.back-arrow {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+.input-field input:focus {
+  outline: none;
+}
+
+.form-field {
+  align-self: center;
+}
+
+.login-link {
+  color: var(--dark);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+  color: var(--darker);
+}
+
+/* Registrations: new.html.erb */
+.pad {
+  margin-left: 0.8rem;
 }
