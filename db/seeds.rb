@@ -1,18 +1,36 @@
-# Create some sample users
-User.create(name: "John Doe", email: "john@example.com", password: "password")
-User.create(name: "Jane Smith", email: "jane@example.com", password: "password")
+# create some users
+user1 = User.new(name: "Johnab", email: "johnab@example.com", password: "password123")
+user1.save!
+user2 = User.new(name: "Sarahab", email: "sarahab@example.com", password: "password123")
+user2.save!
 
-# Create some sample categories
-Category.create(name: "Food", icon: "🍔")
-Category.create(name: "Shopping", icon: "🛍️")
-Category.create(name: "Entertainment", icon: "🎬")
+# create some categories for user1
+category1 = user1.categories.create(id: 100, name: "Groceries", icon: "🍞")
+category1.save!
+category2 = user1.categories.create(id: 200, name: "Entertainment", icon: "🎭")
+category2.save!
 
-# Create some sample transactions
-Transaction.create(name: "Lunch at McDonald's", amount: 7.99)
-Transaction.create(name: "Groceries at Walmart", amount: 35.78)
-Transaction.create(name: "Movie tickets", amount: 12.50)
 
-# Associate transactions with categories
-CategoryTransaction.create(category_id: 1, transaction_id: 1)
-CategoryTransaction.create(category_id: 2, transaction_id: 2)
-CategoryTransaction.create(category_id: 3, transaction_id: 3)
+# create some categories for user2
+category3 = user2.categories.create(id: 300, name: "Transportation", icon: "🚗")
+category3.save!
+category4 = user2.categories.create(id: 400, name: "Utilities", icon: "💡")
+category4.save!
+
+# create some purchases for user1
+purchase1 = user1.purchases.create(name: "Bread", amount: 2.5, category_id: category1.id)
+purchase1.save!
+purchase2 = user1.purchases.create(name: "Movie ticket", amount: 12.5, category_id: category2.id)
+purchase2.save!
+
+# create some purchases for user2
+purchase3 = user2.purchases.create(name: "Gasoline", amount: 30.0, category_id: category3.id)
+purchase3.save!
+purchase4 = user2.purchases.create(name: "Electricity bill", amount: 60.0, category_id: category4.id)
+purchase4.save!
+
+# link purchases to categories
+category1.purchases << purchase1
+category2.purchases << purchase2
+category3.purchases << purchase3
+category4.purchases << purchase4
