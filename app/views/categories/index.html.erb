@@ -1,0 +1,28 @@
+<section class="authorized-user-container">
+  <%= render partial: "shared/header" %>
+  <div class="user-category-info">
+    <% purchase_count = @unique_purchases.size %>
+    <p>Spending: <%= number_to_currency(@total_purchase) %></p>
+    <p>Unique: <%= purchase_count  == 1 ? "Entry" : "Entries" %><%= purchase_count %></p>
+  </div>
+
+  <div class="categories-container">
+    <% if @categories.empty? %>
+      <div class="empty">
+        <h3>There are no categories. Please create categories!<h3>
+      </div>
+    <% else %>
+      <div>
+        <% @categories.each do |category| %>
+          <%=
+          render 'categories/partials/category_item', category: category,
+          total: @unique_purchases.map { |p| category.purchases.include?(p) ? p.amount : 0 }.sum %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="button-container flex-center">
+    <%= link_to "Add Category", new_category_path, class: "button flex-center" %>
+  </div>
+</section>

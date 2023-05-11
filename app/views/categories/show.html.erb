@@ -1,0 +1,25 @@
+<section class="authorized-user-container">
+    <%= render partial: "shared/header" %>
+    <div class="user-category-info">
+      <h2><%= @category.name %></h2>
+      <div>
+        <p>Total Expenditure: <%= number_to_currency(@category.total_purchase)%> </p>
+      </div>
+    </div>
+
+    <% if @purchases.empty? %>
+      <div class="empty">
+        <h2>There are no purchases for this category!</h2>
+      </div>
+    <% else %>
+      <div>
+        <% @purchases.each do |purchase| %>
+          <%= render 'categories/partials/transaction_item', purchase: purchase, category: @category %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="button-container flex-center">
+        <%= link_to "Add a purchase", new_category_purchase_path(@category), class: "button flex-center" %>
+    </div>
+</section>

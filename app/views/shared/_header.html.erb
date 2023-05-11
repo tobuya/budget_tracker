@@ -1,0 +1,27 @@
+ <header>
+    <% if controller_name == 'categories' && action_name == 'index' || controller_name == 'categories' && action_name == 'new' %>
+      <% content_for :header do %>
+        <div class="header">
+            <a href="<%= authenticated_user_path %>", class="icon-link">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+            <p class="title">CATEGORIES</p>
+            <a href="<%= authenticated_user_path %>", class="icon-link">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+        </div>
+      <% end %>
+    <% else %>
+      <% content_for :header do %>
+        <div class="header">
+            <a href="<%= authenticated_user_path %>", class="icon-link">
+              <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            </a>
+            <p class="title">TRANSACTIONS</p>
+            <a href="<%= authenticated_user_path %>", class="icon-link">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+        </div>
+      <% end %>
+    <% end %>
+</header>
