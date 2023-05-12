@@ -1,16 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe Category, type: :model do
-  let(:user) { FactoryBot.create(:user) }
-
-  describe 'associations' do
-    it { should belong_to(:user) }
-    it { should have_many(:category_transactions).dependent(:destroy) }
-    it { should have_many(:transactions).through(:category_transactions).source(:category) }
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:icon) }
   end
 
-  describe 'validations' do
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:icon) }
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_and_belong_to_many(:purchases).dependent(:destroy) }
   end
 end
