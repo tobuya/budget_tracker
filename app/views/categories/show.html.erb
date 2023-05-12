@@ -4,6 +4,7 @@
       <h2><%= @category.name %></h2>
       <div>
         <p>Total Expenditure: <%= number_to_currency(@category.total_purchase)%> </p>
+        <%= button_to "Delete Category", category_path(@category), method: :delete, class: "btn btn-secondary"%>
       </div>
     </div>
 

@@ -2,14 +2,14 @@
   <%= render partial: "shared/header" %>
   <div class="user-category-info">
     <% purchase_count = @unique_purchases.size %>
-    <p>Spending: <%= number_to_currency(@total_purchase) %></p>
-    <p>Unique: <%= purchase_count  == 1 ? "Entry" : "Entries" %><%= purchase_count %></p>
+    <p>Total Spending: <%= number_to_currency(@total_purchases) %></p>
+    <p>Unique Entries: <%= purchase_count %></p>
   </div>
 
   <div class="categories-container">
     <% if @categories.empty? %>
       <div class="empty">
-        <h3>There are no categories. Please create categories!<h3>
+        <h2>There are no categories. Please create categories!<h2>
       </div>
     <% else %>
       <div>
