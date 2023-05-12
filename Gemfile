@@ -9,6 +9,8 @@ gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 
 gem 'devise'
 
+gem 'rails-controller-testing'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
