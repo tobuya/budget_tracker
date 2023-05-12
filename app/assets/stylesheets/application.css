@@ -122,8 +122,6 @@
 /* Homepage: home.html.erb */
 .homepage {
   flex-direction: column;
-  gap: 2rem;
-  max-width: 768px;
   height: 100vh;
   background-color: var(--white-shade);
 }
@@ -132,7 +130,7 @@
   font-family: 'Great Vibes', cursive;
   opacity: 0.7;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .user-authentication {
@@ -363,4 +361,15 @@
 /* Registrations: new.html.erb */
 .pad {
   margin-left: 0.8rem;
+}
+
+/* Devise/shared: error_messages.html.erb */
+.error-message {
+  color: var(--red);
+  flex-direction: column;
+}
+
+.error-message > * {
+  list-style-type: none;
+  padding: 0;
 }
