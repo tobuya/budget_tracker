@@ -1,0 +1,38 @@
+<section class="category-form-section">
+    <%= render partial: "shared/header" %>
+    <div>
+        <%= form_with model: @category do |form| %>
+          <div class="category-form">
+            <% options = [
+              ["🍔 Foods", "🍔"],
+              ["🛒 Groceries", "🛒"],
+              ["🚗 Tranportation", "🚗"],
+              ["🐶 Pet expenses", "🐶"],
+              ["📚 Books", "📚"],
+              ["💻 Electronics", "💻"],
+              ["🎁 Gifts", "🎁"],
+              ["🏠 Housing", "🏠"],
+              ["🏥 Health", "🏥"],
+              ["🎬 Entertainment", "🎬"],
+              ["👔 Clothing", "👔"],
+              ["🎓 Education", "🎓"],
+              ["🧾 Others", "🧾"],
+            ] %>
+
+            <div class="form-actions">
+              <%= form.select :icon, options_for_select(options), {prompt: "Select an icon for your category"} %>
+            </div>
+
+            <div class="form-actions">
+              <%= form.text_field :name, placeholder: "Category Name", required: true %>
+            </div>
+
+            <div class="btn-submit">
+              <%= form.submit "Create category", class: "btn btn-primary" %>
+              <%= link_to "Cancel", categories_path, class: "btn btn-secondary btn-cancel flex-center" %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+    <%= render partial: "shared/footer" %>
+</section>

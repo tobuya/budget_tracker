@@ -1,0 +1,18 @@
+databases:
+  - name: example-postgres
+    databaseName: example_postgres_u83r
+    user: example_postgres_u83r_user
+
+services:
+  - type: web
+    name: budget_tracker
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: example_postgres_u83r
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

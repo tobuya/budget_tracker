@@ -1,0 +1,40 @@
+<section>
+  <%= render partial: "shared/header" %>
+    <% if flash[:alert].present? %>
+      <div>
+        <strong>Error:</strong><%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <div class="category-form">
+        <%= form_with model: [@category, @purchase] do |form| %>
+          <%= form.hidden_field :category_id, value: @category.id %>
+
+          <div class="form-actions">
+            <%= form.text_field :name, autofocus: true, placeholder: "Enter the name of the item purchased", required: true%>
+          </div>
+
+          <div class="form-actions">
+            <%= form.number_field :amount, placeholder: "Enter the amount paid", required: true, min: 0 %>
+          </div>
+
+          <div class="flex-center purchase-checkbox">
+            <h4><%= form.label :category_ids, "Choose a category" %></h4>
+            <div>
+                <%= form.collection_check_boxes :category_ids, @categories, :id, :name, {checked: @category.id} do |b| %>
+                  <div>
+                    <%= b.check_box %>
+                    <%= b.label %>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+
+          <div class="btn-submit">
+            <%= form.submit "Add a purchase", class: "btn btn-primary"%>
+            <%= link_to "Cancel", category_path(@category), class: "btn btn-secondary btn-cancel flex-center" %>
+          </div>
+        <% end %>
+    </div>
+  <%= render partial: "shared/footer" %>
+</section>

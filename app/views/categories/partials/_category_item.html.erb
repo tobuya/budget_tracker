@@ -1,0 +1,16 @@
+<main class="category-container">
+  <%= link_to category_path(category), class: "category-link" do %>
+    <div class="category">
+      <div class="category-details">
+        <div><%= category.icon %></div>
+        <div>
+          <h3 class="category-name"><%= category.name %></h3>
+          <p class="details"><%= pluralize(category.purchases.length, "Entry")%></p>
+        </div>
+      </div>
+      <div class="flex-center">
+        <p class="details"><%= number_to_currency(category.total_purchase) %></p>
+      </div>
+    </div>
+  <% end %>
+</main>

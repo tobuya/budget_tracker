@@ -1,0 +1,13 @@
+<div class="category single-category">
+    <div class="category-details">
+        <div>🪙</div>
+        <div>
+            <h3><%= purchase.name %></h3>
+            <p><%= purchase.updated_at.to_datetime.strftime("%B %d, %Y") %></p>
+        </div>
+    </div>
+    <div>
+        <p>Expense: <%= number_to_currency(purchase.amount) %></p>
+        <%= button_to content_tag(:i, "") + "Remove", category_purchase_path(category, purchase), method: :delete, class: "btn btn-remove" %>
+    </div>
+</div>

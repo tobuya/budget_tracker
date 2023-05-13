@@ -1,0 +1,34 @@
+<section class="auth-form flex-center">
+  <div class="login-header">
+    <h3>REGISTER<h3>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="input-field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "email", placeholder: "Full name" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <div class="input-field">
+      <% if @minimum_password_length %>
+      <em class="pad">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "New password" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+    </div>
+
+    <div class="form-field">
+      <%= f.submit "Sign up", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
