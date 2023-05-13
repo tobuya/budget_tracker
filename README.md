@@ -51,7 +51,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
- [To be Updated]
+ [View live](https://budget-tracker-cl27.onrender.com)
 
 ## 📘 Getting Started  <a name="getting-started"></a>
 
