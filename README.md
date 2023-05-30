@@ -9,6 +9,7 @@
 <summary>Table of Contents</summary>
 
 - [🪙 Budget Tracker](#-budget_tracker)
+  - [📸 Screenshots](#screenshot)
   - [🧰 Tech Stack  ](#-tech-stack--)
   - [✨ Key Features  ](#-key-features--)
   - [🚀 Live Demo](#-live-demo--)
@@ -31,6 +32,7 @@
 
 **Budget Tracker** is a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
+## 📸 Screenshots <a name="screenshot"></a>
 ![Screenshoot](./app/assets/images/category.png)
 ![Screenshoot](./app/assets/images/details.png)
 
